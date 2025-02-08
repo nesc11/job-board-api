@@ -1,0 +1,12 @@
+services:
+  api:
+    container_name: job-board-api
+    image: job-board-api
+    build: .
+    ports:
+      - "8000:80"
+    develop:
+      watch:
+        - action: sync
+          path: ./app
+          target: /code/app
