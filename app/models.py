@@ -1,7 +1,7 @@
 from enum import Enum
 
 from sqlmodel import Field, SQLModel
-from pydantic import EmailStr
+from pydantic import EmailStr, BaseModel
 from datetime import datetime
 
 
@@ -58,3 +58,13 @@ class JobUpdate(SQLModel):
     description: str | None
     company: str | None
     location: str | None
+
+
+# TOKEN
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    email: str | None = None
